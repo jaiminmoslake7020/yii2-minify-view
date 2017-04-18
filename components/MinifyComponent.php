@@ -132,6 +132,7 @@ abstract class MinifyComponent
 
         
         // This is added code which uploads to S3
+        // check it works or not 
         if( AppBasic::stringNotNull($type) )
         {
             $versionName = CriteriaVisualizationsHelper::getVersionName() ;
@@ -156,7 +157,7 @@ abstract class MinifyComponent
         if( $type == "CSS" )
         {
             $prefix = "" ;
-            $layout = Yii::$app->controller->layout ;
+            $layout = \Yii::$app->controller->layout ;
             if( in_array( $layout , ["old_main","public_pages"] ) )
             {
                 $prefix = "public-pages-" ;

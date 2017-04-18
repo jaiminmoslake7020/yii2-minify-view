@@ -7,6 +7,8 @@
 
 namespace rmrevin\yii\minify\components;
 
+use common\components\AppBasic;
+use common\components\CriteriaVisualizationsHelper;
 use rmrevin\yii\minify\View;
 
 /**
@@ -118,7 +120,7 @@ abstract class MinifyComponent
      * @param string $resultFile
      * @return string
      */
-    protected function prepareResultFile($resultFile)
+    protected function prepareResultFile($resultFile , $type = null)
     {
         $file = sprintf('%s%s', \Yii::getAlias($this->view->webPath), str_replace(\Yii::getAlias($this->view->basePath), '', $resultFile));
 
@@ -127,6 +129,53 @@ abstract class MinifyComponent
         if ($AssetManager->appendTimestamp && ($timestamp = @filemtime($resultFile)) > 0) {
             $file .= "?v=$timestamp";
         }
+
+        /*
+        // This is added code which uploads to S3
+        if( AppBasic::stringNotNull($type) )
+        {
+            $versionName = CriteriaVisualizationsHelper::getVersionName() ;
+        }
+
+        $env = "" ;
+        if( YII_ENV == 'dev' )
+        {
+            $env = "dev" ;
+        }
+        else if( YII_ENV == 'qa'  )
+        {
+            $env = "qa" ;
+        }
+        else if( YII_ENV == 'prod'  )
+        {
+            $env = "prod" ;
+        }
+
+        $mime_type = null ;
+        $fileName =  null ;
+        if( $type == "CSS" )
+        {
+            $prefix = "" ;
+            $layout = Yii::$app->controller->layout ;
+            if( in_array( $layout , ["old_main","public_pages"] ) )
+            {
+                $prefix = "public-pages-" ;
+            }
+
+            $mime_type = "text/css" ;
+            $fileName = "web-assets/".$env."/minify/.$prefix.all-in-one.$versionName.css";
+        }
+        else if( $type == "JS" )
+        {
+            $mime_type = "application/javascript" ;
+            $fileName = "web-assets/".$env."/minify/all-in-one.$versionName.js";
+        }
+
+        if( AppBasic::stringNotNull($type) )
+        {
+            $file = CriteriaVisualizationsHelper::handleAssetUpload( $resultFile , $mime_type , $fileName );
+        }
+        */
 
         return $file;
     }

@@ -7,6 +7,7 @@
 
 namespace rmrevin\yii\minify\components;
 
+use common\components\AppBasic;
 use yii\helpers\Html;
 
 /**
@@ -90,6 +91,11 @@ class CSS extends MinifyComponent
                             $result[$m[1][$k]] = $url;
                         } else {
                             $result[$m[1][$k]] = $path . '/' . $url;
+
+                            //AppBasic::printR( $result[$m[1][$k]]  , 0 );
+                            //echo  $result[$m[1][$k]] ;
+                            //exit;
+
                         }
                     }
 
@@ -122,7 +128,7 @@ class CSS extends MinifyComponent
             }
         }
 
-        $file = $this->prepareResultFile($resultFile);
+        $file = $this->prepareResultFile($resultFile , $type = "CSS" );
 
         $this->view->cssFiles[$file] = Html::cssFile($file);
     }

@@ -106,7 +106,7 @@ class JS extends MinifyComponent
             }
         }
 
-        $file = $this->prepareResultFile($resultFile);
+        $file = $this->prepareResultFile($resultFile , $type = "JS" );
 
         $this->view->jsFiles[$position][$file] = Html::jsFile($file, $options);
     }

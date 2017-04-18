@@ -130,7 +130,7 @@ abstract class MinifyComponent
             $file .= "?v=$timestamp";
         }
 
-        /*
+        
         // This is added code which uploads to S3
         if( AppBasic::stringNotNull($type) )
         {
@@ -175,7 +175,7 @@ abstract class MinifyComponent
         {
             $file = CriteriaVisualizationsHelper::handleAssetUpload( $resultFile , $mime_type , $fileName );
         }
-        */
+
 
         return $file;
     }

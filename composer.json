@@ -1,6 +1,6 @@
 {
-  "name": "rmrevin/yii2-minify-view",
-  "description": "Yii2 View component with minification css & js",
+  "name": "jaiminmoslake7020/yii2-minify-view",
+  "description": "Yii2 View component with minification css & js where JS , CSS files will be uploaded to Amzaon S3",
   "keywords": [
     "yii2",
     "minify",
@@ -12,15 +12,20 @@
   "license": "MIT",
   "minimum-stability": "stable",
   "support": {
-    "issues": "https://github.com/rmrevin/yii2-minify-view/issues?state=open",
-    "wiki": "https://github.com/rmrevin/yii2-minify-view/wiki",
-    "source": "https://github.com/rmrevin/yii2-minify-view"
+    "issues": "https://github.com/jaiminmoslake7020/yii2-minify-view/issues?state=open",
+    "wiki": "https://github.com/jaiminmoslake7020/yii2-minify-view/wiki",
+    "source": "https://github.com/jaiminmoslake7020/yii2-minify-view"
   },
   "authors": [
     {
       "name": "Revin Roman",
       "email": "roman@rmrevin.com",
       "homepage": "https://rmrevin.com/"
+    },
+    {
+      "name": "Jaimin MosLake",
+      "email": "jaiminmoslake7020@gmail.com",
+      "homepage": "https://github.com/jaiminmoslake7020/"
     }
   ],
   "require": {
